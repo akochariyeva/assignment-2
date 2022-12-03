@@ -34,7 +34,7 @@ body {
   gap: 8px;
 }
 
-#city_name {
+.input {
   font-size: medium;
   border: none;
   outline: none;
