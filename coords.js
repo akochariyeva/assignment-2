@@ -1,5 +1,6 @@
-var city_name = document.getElementById("city_name");
-var find_city = document.getElementById("find_city");
+var latitude = document.getElementById("latitude");
+var longitude = document.getElementById("longitude");
+var find_coords = document.getElementById("find_coords");
 
 var weather = document.getElementById("weather");
 var city = document.getElementById("city");
@@ -12,17 +13,20 @@ var humidity = document.getElementById("humidity");
 var pressure = document.getElementById("pressure");
 var wind = document.getElementById("wind");
 
-find_city.addEventListener("click", () => {
-  var cityname = city_name.value;
+find_coords.addEventListener("click", () => {
+  var lat = +latitude.value;
+  var lon = +longitude.value;
 
-  if (!cityname || cityname.trim().length === 0) {
-    alert("Enter a valid city name");
+  if (!lat || isNaN(lat) || !lon || isNaN(lon)) {
+    alert("Enter valid coordinates");
     return;
   }
 
   var url =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    cityname +
+    "https://api.openweathermap.org/data/2.5/weather?lat=" +
+    lat +
+    "&lon=" +
+    lon +
     "&units=metric&appid=2e77ff436ee024ef641852efddfc5426";
 
   fetch(url)

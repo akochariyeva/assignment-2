@@ -1,5 +1,6 @@
 var current_weather = document.getElementById("current_weather");
 
+var weather = document.getElementById("weather");
 var city = document.getElementById("city");
 var country = document.getElementById("country");
 var temperature = document.getElementById("temperature");
@@ -22,6 +23,8 @@ current_weather.addEventListener("click", () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
+        weather.innerText =
+          data.weather[0].main + ", " + data.weather[0].description;
         city.lastElementChild.innerText = data.name;
         temperature.lastElementChild.innerText = data.main.temp;
         min_temperature.lastElementChild.innerText = data.main.temp_min + "°C";
@@ -38,7 +41,6 @@ current_weather.addEventListener("click", () => {
               country.lastElementChild.innerText = data[0].name.common;
             })
         );
-        console.log(data);
       });
   });
 });
