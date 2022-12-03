@@ -1,7 +1,7 @@
 body {
   background-color: #2c3e50;
   color: #ffffff;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .app {
@@ -21,9 +21,21 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .button:hover {
   background: #2980b9;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+#city_name {
+  font-size: medium;
+  border: none;
+  outline: none;
 }
