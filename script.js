@@ -10,6 +10,7 @@ var real_feel = document.getElementById("real_feel");
 var humidity = document.getElementById("humidity");
 var pressure = document.getElementById("pressure");
 var wind = document.getElementById("wind");
+var date = document.getElementById("date");
 
 current_weather.addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition((position) => {
@@ -34,6 +35,9 @@ current_weather.addEventListener("click", () => {
         pressure.lastElementChild.innerText = data.main.pressure + " hPa";
         wind.lastElementChild.innerText =
           data.wind.speed + " m/s, " + data.wind.deg + " deg";
+        date.lastElementChild.innerText = new Date(
+          data.dt * 1000
+        ).toLocaleString("az-AZ");
 
         fetch("https://restcountries.com/v3.1/alpha/" + data.sys.country).then(
           (response) =>
